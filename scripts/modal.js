@@ -154,18 +154,21 @@ if(localStorage.getItem('pwCorrect')){
   }
   window.onload = firstLoad;  /// to launch the root function XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXS
   var done = false
-  var findFirebaseCredentials = setInterval(function() {
-    console.log('firebase initialise')
-      if (firebaseKey != null) {
-          try {
-              firebase.initializeApp(firebaseConfig);
-            //console.log('Firebase initialized')
-              clearInterval(findFirebaseCredentials)
-          } catch (e) {
-            // console.log('firebase not initialized!!')
+  if(!localStorage.getItem('pwCorrect')){
+    var findFirebaseCredentials = setInterval(function() {
+        console.log('firebase initialise')
+          if (firebaseKey != null) {
+              try {
+                  firebase.initializeApp(firebaseConfig);
+                //console.log('Firebase initialized')
+                  clearInterval(findFirebaseCredentials)
+              } catch (e) {
+                // console.log('firebase not initialized!!')
+              }
           }
-      }
-  }, 500)
+      }, 500)
+  }
+
   
   setTimeout(function(){
     document.getElementById('loginInfo').style.opacity = '1'

@@ -37,26 +37,6 @@ projection: 'globe',
 // attributionControl: 'Leaflet | Mapbox and OpenStreetMap Contributors',
 // attributionControl: false
 });
-
-map.on('load', () => {
-// Set the default atmosphere style
-map.setFog({
-color: 'grey', // Lower atmosphere
-    'high-color': '#232222', // Upper atmosphere
-    'horizon-blend': 0.02, // Atmosphere thickness (default 0.2 at low zooms)
-    'space-color': '#232222', // Background color
-    'star-intensity': 0 // Background star brightness (default 0.35 at low zoooms )
-});
-
-// var leafletAttrib1style1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
-// leafletAttrib1style1[0].style.backgroundColor = 'transparent'
-// // var leafletAttrib1style2 = document.getElementsByClassName("mmapboxgl-ctrl mapboxgl-ctrl-attrib")
-// // leafletAttrib1style2[0].style.backgroundColor = 'transparent'
-// // leafletAttrib1style2[0].style.color = '#808080'
-// var leafletAttrib1style3 = document.getElementsByClassName("mapboxgl-ctrl-attrib-inner")
-// leafletAttrib1style3[0].style.backgroundColor = 'transparent'
-});
-
 var intervalremoveattributes = setInterval(function(){
   try{
     var mapboxattrib1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
@@ -67,7 +47,30 @@ var intervalremoveattributes = setInterval(function(){
     console.log('error', e)
   }
 
-},50)
+},1)
+
+map.on('load', () => {
+  console.log('map loaded')
+// Set the default atmosphere style
+map.setFog({
+color: 'grey', // Lower atmosphere
+    'high-color': '#232222', // Upper atmosphere
+    'horizon-blend': 0.02, // Atmosphere thickness (default 0.2 at low zooms)
+    'space-color': '#232222', // Background color
+    'star-intensity': 0 // Background star brightness (default 0.35 at low zoooms )
+});
+// var mapboxattrib1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
+// mapboxattrib1[0].style.display = 'initial'
+// var mapboxattrib2 = document.getElementsByClassName("mapboxgl-ctrl-bottom-left")
+// mapboxattrib2[0].style.display = 'initial'
+// var mapboxattrib = document.getElementsByClassName("mapbox-improve-map")
+// mapboxattrib[0].innerHTML = ''
+// var mapboxattribbox = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
+// mapboxattribbox[0].style.backgroundColor = '#fffff'
+
+});
+
+
 
 setTimeout(function(){
   clearInterval(intervalremoveattributes)
@@ -220,6 +223,9 @@ var youtubeVideoLoaded = false
 var searchResult = 'nosearchyet'
 
 document.getElementById('askthemap').onclick = function(){
+  clearInterval(intervalremoveattributes)
+
+
   document.getElementById('askthemap').style.backgroundColor = '#4B0101'
 
   setTimeout(function(){
@@ -244,6 +250,20 @@ document.getElementById('askthemap').onclick = function(){
       essential: true // this animation is considered essential with respect to prefers-reduced-motion
       });
 
+
+      var mapboxAttrib1style1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
+      mapboxAttrib1style1[0].style.backgroundColor = 'transparent'
+      mapboxAttrib1style1[0].style.display = 'initial'
+      var mapboxAttrib1style2 = document.getElementsByClassName("mapboxgl-ctrl mapboxgl-ctrl-attrib")
+      mapboxAttrib1style2[0].style.backgroundColor = 'transparent'
+      mapboxAttrib1style2[0].style.display = 'initial'
+      
+      // leafletAttrib1style2.style.color = 'yellow'
+      var mapboxAttrib1style3 = document.getElementsByClassName("mapboxgl-ctrl-attrib-inner")
+      mapboxAttrib1style3[0].style.backgroundColor = 'transparent'
+      mapboxAttrib1style3[0].style.color = 'grey'
+      mapboxAttrib1style3[0].innerHTML = 'Mapbox | CARTO | OSM Contributors'
+      mapboxAttrib1style3[0].style.display = 'initial'
   },300)
 
 
@@ -260,14 +280,7 @@ document.getElementById('askthemap').onclick = function(){
     document.getElementById("map").style.opacity = 1;
     document.getElementById('MapLoading').style.opacity = 1
     document.getElementById('askthemap').style.backgroundColor = 'white'
-    var mapboxattrib1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
-    mapboxattrib1[0].style.display = 'initial'
-    var mapboxattrib2 = document.getElementsByClassName("mapboxgl-ctrl-bottom-left")
-    mapboxattrib2[0].style.display = 'initial'
-    var mapboxattrib = document.getElementsByClassName("mapbox-improve-map")
-    mapboxattrib[0].innerHTML = ''
-    var mapboxattribbox = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
-    mapboxattribbox[0].style.backgroundColor = '#fffff'
+
 
   },200)
 
