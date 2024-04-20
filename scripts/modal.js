@@ -29,7 +29,7 @@ if(localStorage.getItem('pwCorrect')){
     }else{
       document.getElementById('login').style.opacity='0.4';
       document.getElementById('login').disabled = true;
-      document.getElementById('login').style.borderColor= 'white'
+      // document.getElementById('login').style.borderColor= 'white'
     }
     
   },300)
@@ -303,7 +303,7 @@ if(localStorage.getItem('pwCorrect')){
           authentication = 'checking' //to avoid failed being stored, if first time fails. Number of fails is limited by Firebase!!!
           clearInterval(checkPw)
           document.getElementById('loginIcon').src = 'images/checkingPw.gif'
-          document.getElementById('login').style.borderColor= 'white'
+          // document.getElementById('login').style.borderColor= 'white'
   
           e.preventDefault() // to avoid page reload on first load!
         //   var firstFour = document.getElementById('enteredPw').value.substr(0, 4)
@@ -351,7 +351,7 @@ if(localStorage.getItem('pwCorrect')){
                       }catch(e){
                       }
 
-                  document.getElementById('login').style.borderColor= 'white'
+                  // document.getElementById('login').style.borderColor= 'white'
                   valueEnteredName = document.getElementById('enteredName').value
                 //   valueEnteredPhone = document.getElementById('enteredPhone').value
                   localStorage.setItem('username', valueEnteredName);

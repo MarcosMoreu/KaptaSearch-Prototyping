@@ -10,6 +10,7 @@ emojioneareaeditor0.addEventListener("keypress", function(event) {
   }
 });
 document.getElementById('searchWocMap').onclick = function(e){
+  console.log('searchclicked')
   // setTimeout(function(){
   //   document.getElementById("bot").style.fontSize = "16px";
   //   document.getElementById("bot").style.color = 'white';

@@ -287,6 +287,8 @@ document.getElementById('askthemap').onclick = function(){
 }
 document.getElementById('backtohomepage').onclick = function(e){
   document.getElementById('askthemap').style.backgroundColor = '#740202'
+  var mapboxattrib1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
+  mapboxattrib1[0].style.display = 'none'
 
   var emojioneareaeditor0 = document.getElementById('emojionearea')
 
