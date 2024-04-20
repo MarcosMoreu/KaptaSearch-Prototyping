@@ -64,7 +64,7 @@ document.getElementById('searchWocMap').onclick = function(e){
 ///////////////////////////////////////////////////////////////////////////////
 
   console.log(emojioneareaeditor0.value)
-        if (boxContent.includes('give me')){
+        if (boxContent.includes('give me') || boxContent.includes('show')){
           console.log('give me query ') 
           // searchResult = 'data'
           // var sqlQuerySelect = "SELECT geom FROM `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_private` WHERE mainattribute='" +boxContent+ "'"
@@ -80,7 +80,7 @@ document.getElementById('searchWocMap').onclick = function(e){
 
           // Construct the full SQL query using the dynamically created WHERE clause
           let sqlQuerySelect = `
-          SELECT geom
+          SELECT geom, contributionid, username, timestamp, mainattribute, attribute1s, attribute3s
           FROM \`carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_private\`
           WHERE ${whereClause}
           `;
@@ -130,7 +130,7 @@ document.getElementById('searchWocMap').onclick = function(e){
             setTimeout(() => {
               document.getElementById("bot").style.fontSize = "16px";
               document.getElementById("bot").style.color = 'white';
-              document.getElementById('bot').innerHTML = '    Do you want to download or query this ground data? (yes/no)'
+              document.getElementById('bot').innerHTML = '    Do you want to download this ground data? (yes/no)'
               document.getElementById("bot").style.display = 'initial'
             }, 1000);
 
@@ -172,7 +172,7 @@ document.getElementById('searchWocMap').onclick = function(e){
             setTimeout(() => {
               document.getElementById("bot").style.fontSize = "16px";
               document.getElementById("bot").style.color = 'white';
-              document.getElementById('bot').innerHTML = '    Do you want to download or query this ground data? (yes/no)'
+              document.getElementById('bot').innerHTML = '    Do you want to download this ground data? (yes/no)'
               document.getElementById("bot").style.display = 'initial'
             }, 1000);
 
@@ -194,7 +194,7 @@ document.getElementById('searchWocMap').onclick = function(e){
             setTimeout(() => {
               document.getElementById("bot").style.fontSize = "16px";
               document.getElementById("bot").style.color = 'white';
-              document.getElementById('bot').innerHTML = '    Do you want to download or query this ground data? (yes/no)'
+              document.getElementById('bot').innerHTML = '    Do you want to download this ground data? (yes/no)'
               document.getElementById("bot").style.display = 'initial'
             }, 1000);
 
@@ -248,25 +248,41 @@ document.getElementById('searchWocMap').onclick = function(e){
 
           }else if(searchResult == 'data'){
             // }else if(searchResult == 'data_zoom'){//form to request data
-              document.getElementById('homepage').style.display = 'initial'
-              document.getElementById('formGobackbutton').style.display = 'initial'
-              document.getElementById('submitrequestbutton').style.display = 'initial'
-              document.getElementById('inputs').style.display = 'initial'
-              document.getElementById('labelinput1').innerHTML = 'Name of the ground data request'
-              document.getElementById('labelinput2').innerHTML = 'Description of the ground data use'
-              document.getElementById('labelinput3').innerHTML = 'Donation (80% of the amount goes to the local data collectors❗)'
-              document.getElementById('labelinput4').innerHTML = 'Organisation'
-              document.getElementById('labelinput5').innerHTML = 'Email address'
-
-              document.getElementById('bot').style.display = 'none'
-              document.getElementById('emojionearea').style.display = 'none'
-              document.getElementById('askthemap').style.display = 'none'
-              document.getElementById('dropDown').style.display = 'none'
-              document.getElementById('languages').style.display = 'none'
-              document.getElementById('kaptainitialscreen').style.display = 'none'
-              document.getElementById('map').style.display = 'none'
-              document.getElementById('searchWocMap').style.display = 'none'
-              document.getElementById('backtohomepage').style.display = 'none'
+              // document.getElementById('homepage').style.display = 'initial'
+              // document.getElementById('formGobackbutton').style.display = 'initial'
+              // document.getElementById('submitrequestbutton').style.display = 'initial'
+              // document.getElementById('inputs').style.display = 'initial'
+              // document.getElementById('labelinput1').innerHTML = 'Name of the ground data request'
+              // document.getElementById('labelinput2').innerHTML = 'Description of the ground data use'
+              // document.getElementById('labelinput3').innerHTML = 'Donation (80% of the amount goes to the local data collectors❗)'
+              // document.getElementById('labelinput4').innerHTML = 'Organisation'
+              // document.getElementById('labelinput5').innerHTML = 'Email address'
+              // document.getElementById('bot').style.display = 'none'
+              // document.getElementById('emojionearea').style.display = 'none'
+              // document.getElementById('askthemap').style.display = 'none'
+              // document.getElementById('dropDown').style.display = 'none'
+              // document.getElementById('languages').style.display = 'none'
+              // document.getElementById('kaptainitialscreen').style.display = 'none'
+              // document.getElementById('map').style.display = 'none'
+              // document.getElementById('searchWocMap').style.display = 'none'
+              // document.getElementById('backtohomepage').style.display = 'none'
+              document.getElementById('bot').innerHTML = '    The data has been downloaded. Continue searching...' 
+              var timeEnd = new Date();
+              var date = timeEnd.getFullYear() + '-' + (timeEnd.getMonth() + 1) + '-' + timeEnd.getDate();
+              var time = timeEnd.getHours() + ":" + timeEnd.getMinutes() + ":" + timeEnd.getSeconds();
+              var timestamp = date + 'T' + time + 'Z';
+              var filenamesub1 = 'Kapta'
+              var filenamesub2 = localStorage.getItem('username')
+              // var filenamesub3 = document.getElementById('inputtopic').value
+              var filename = filenamesub1 + ' ' + filenamesub2 + ' ' + timestamp + '.geojson'  
+              var geojsonToString = JSON.stringify(datatoexport)
+              var dataToExport = 'data:text/json;charset=utf-8,' + encodeURIComponent(geojsonToString);
+              var toDownloadGeoJSON = document.createElement('a');
+              toDownloadGeoJSON.setAttribute('href', dataToExport);
+              toDownloadGeoJSON.setAttribute('download', filename);
+              document.body.appendChild(toDownloadGeoJSON); // required for firefox
+              toDownloadGeoJSON.click();
+              toDownloadGeoJSON.remove();
           }
           
         }else if(boxContent == '' && searchResult == 'data_zoom'){ //form to ACCESS data

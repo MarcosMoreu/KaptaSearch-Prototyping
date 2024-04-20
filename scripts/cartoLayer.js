@@ -73,7 +73,9 @@ var requestCartoData = function(sqlQuerySelectEncoded) {
 // Consider revising or removing this part based on your actual requirements
 
 var cartopopupcontentrefined
+var datatoexport
 var testcarto = function(data) {
+  datatoexport = data
 console.log('test carto')
 console.log(data)
     map.addSource('test', {
@@ -118,7 +120,7 @@ console.log(data)
         setTimeout(() => {
           document.getElementById("bot").style.fontSize = "16px";
           document.getElementById("bot").style.color = 'white';
-          document.getElementById('bot').innerHTML = '    Do you want to download or query this ground data?? (yes/no)'
+          document.getElementById('bot').innerHTML = '    Do you want to download this ground data?? (yes/no)'
           document.getElementById("bot").style.display = 'initial'
         }, 3000);
         searchResult = 'data'
@@ -128,7 +130,7 @@ console.log(data)
       console.log('error sql catched due to empty layer after filter applied')
     }
 
-      return searchResult
+      return searchResult && datatoexport
 
 }
 

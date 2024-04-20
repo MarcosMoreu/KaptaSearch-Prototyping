@@ -42,6 +42,8 @@ projection: 'globe',
 
 map.on('load', () => {
 // Set the default atmosphere style
+document.getElementById('askthemap').innerHTML = 'Search </br> Ground </br> Data'
+// document.getElementById('askthemap').disabled = false
 map.setFog({
 color: 'grey', // Lower atmosphere
     'high-color': '#232222', // Upper atmosphere
@@ -217,15 +219,15 @@ var searchResult = 'nosearchyet'
 document.getElementById('askthemap').onclick = function(){
   
   clearInterval(intervalremoveattributes)
-
+  var mapboxAttrib1style1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
+  var mapboxAttrib1style2 = document.getElementsByClassName("mapboxgl-ctrl mapboxgl-ctrl-attrib")
+  var mapboxAttrib1style3 = document.getElementsByClassName("mapboxgl-ctrl-attrib-inner")
+  mapboxAttrib1style1[0].style.display = 'none'
+  mapboxAttrib1style2[0].style.display = 'none'
+  mapboxAttrib1style3[0].style.display = 'none'
   document.getElementById('askthemap').style.backgroundColor = '#4B0101'
 
   setTimeout(function(){
-    document.getElementById('classification').style.display = 'initial'
-    document.getElementById('emojionearea').style.display = 'initial'
-    document.getElementById('backtohomepage').style.display = 'initial'
-    document.getElementById('searchWocMap').style.display = 'initial'
-  
   
     document.getElementById("Alert").style.display = 'none'
     document.getElementById("aboutButton").style.display = 'none'
@@ -236,6 +238,21 @@ document.getElementById('askthemap').onclick = function(){
     document.getElementById("languages").style.display = 'none'
     document.getElementById("dropDown").style.display = 'none'
     document.getElementById("askthemap").style.display = 'none'
+
+    document.getElementById('classification').style.display = 'initial'
+    document.getElementById('emojionearea').style.display = 'initial'
+    document.getElementById('backtohomepage').style.display = 'initial'
+    document.getElementById('searchWocMap').style.display = 'initial'
+
+    mapboxAttrib1style1[0].style.backgroundColor = 'transparent'
+    mapboxAttrib1style2[0].style.backgroundColor = 'transparent'
+    mapboxAttrib1style3[0].style.backgroundColor = 'transparent'
+    mapboxAttrib1style3[0].style.color = 'grey'
+    mapboxAttrib1style3[0].innerHTML = 'Mapbox | CARTO | OSM Contributors'
+    mapboxAttrib1style1[0].style.display = 'initial'
+    mapboxAttrib1style2[0].style.display = 'initial'
+    mapboxAttrib1style3[0].style.display = 'initial'
+
     map.flyTo({
       center: [0,10],
       zoom: 2,
@@ -246,19 +263,7 @@ document.getElementById('askthemap').onclick = function(){
       },1000)
 
   },300)
-  var mapboxAttrib1style1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
-  mapboxAttrib1style1[0].style.backgroundColor = 'transparent'
-  mapboxAttrib1style1[0].style.display = 'initial'
-  var mapboxAttrib1style2 = document.getElementsByClassName("mapboxgl-ctrl mapboxgl-ctrl-attrib")
-  mapboxAttrib1style2[0].style.backgroundColor = 'transparent'
-  mapboxAttrib1style2[0].style.display = 'initial'
-  
-  // leafletAttrib1style2.style.color = 'yellow'
-  var mapboxAttrib1style3 = document.getElementsByClassName("mapboxgl-ctrl-attrib-inner")
-  mapboxAttrib1style3[0].style.backgroundColor = 'transparent'
-  mapboxAttrib1style3[0].style.color = 'grey'
-  mapboxAttrib1style3[0].innerHTML = 'Mapbox | CARTO | OSM Contributors'
-  mapboxAttrib1style3[0].style.display = 'initial'
+
 
 
 

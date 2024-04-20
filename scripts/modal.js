@@ -1,5 +1,9 @@
 if(localStorage.getItem('pwCorrect')){
     document.getElementById('modal').style.display='none'
+    document.getElementById('askthemap').innerHTML = 'Loading...'
+    // document.getElementById('askthemap').disabled = true
+
+    
     // document.getElementById('KaptaLite').style.display='initial'
     // document.getElementById('KaptaAdvanced').style.display='initial'
     // document.getElementById('asktheteam').style.display='initial'
