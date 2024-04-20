@@ -47,6 +47,14 @@ color: 'grey', // Lower atmosphere
     'space-color': '#232222', // Background color
     'star-intensity': 0 // Background star brightness (default 0.35 at low zoooms )
 });
+
+// var leafletAttrib1style1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
+// leafletAttrib1style1[0].style.backgroundColor = 'transparent'
+// // var leafletAttrib1style2 = document.getElementsByClassName("mmapboxgl-ctrl mapboxgl-ctrl-attrib")
+// // leafletAttrib1style2[0].style.backgroundColor = 'transparent'
+// // leafletAttrib1style2[0].style.color = '#808080'
+// var leafletAttrib1style3 = document.getElementsByClassName("mapboxgl-ctrl-attrib-inner")
+// leafletAttrib1style3[0].style.backgroundColor = 'transparent'
 });
 
 var intervalremoveattributes = setInterval(function(){
@@ -248,7 +256,7 @@ document.getElementById('askthemap').onclick = function(){
   // },4000)
 
   setTimeout(function(){
-    document.getElementById('initialscreen2options').style.display = 'none'
+    document.getElementById('homepage').style.display = 'none'
     document.getElementById("map").style.opacity = 1;
     document.getElementById('MapLoading').style.opacity = 1
     document.getElementById('askthemap').style.backgroundColor = 'white'
@@ -291,7 +299,7 @@ map.flyTo({
   // document.getElementById('tutorial').click()
 
   clearInterval(checkTextbox)
-  document.getElementById('initialscreen2options').style.display = 'initial'
+  document.getElementById('homepage').style.display = 'initial'
 
   document.getElementById('askthemap').style.display = 'initial'
   document.getElementById('dropDown').style.display = 'initial'
@@ -303,7 +311,7 @@ map.flyTo({
 document.getElementById('formGobackbutton').onclick = function(e){
    setTimeout(function(){
      document.getElementById("formGobackbutton").style.display = "none";
-     document.getElementById('initialscreen2options').style.display = 'none'
+     document.getElementById('homepage').style.display = 'none'
      document.getElementById('inputs').style.display = 'none'
      document.getElementById('requestsubmitedmessage').style.display = 'none'
      document.getElementById('submitrequestbutton').style.display = 'none'
@@ -349,7 +357,7 @@ let var1, var2, var3, var4, var5;
       setTimeout(function(){
         document.getElementById('finishandstart').style.display = 'none'
         document.getElementById("formGobackbutton").style.display = "none";
-        document.getElementById('initialscreen2options').style.display = 'none'
+        document.getElementById('homepage').style.display = 'none'
         document.getElementById('inputs').style.display = 'none'
         document.getElementById('requestsubmitedmessage').style.display = 'none'
         document.getElementById('submitrequestbutton').style.display = 'none'

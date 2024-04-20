@@ -101,7 +101,7 @@ document.getElementById('searchWocMap').onclick = function(e){
           
           
           }else if(boxContent.includes('yes')){
-              document.getElementById('initialscreen2options').style.display = 'initial'
+              document.getElementById('homepage').style.display = 'initial'
               document.getElementById('formGobackbutton').style.display = 'initial'
               document.getElementById('submitrequestbutton').style.display = 'initial'
               document.getElementById('inputs').style.display = 'initial'

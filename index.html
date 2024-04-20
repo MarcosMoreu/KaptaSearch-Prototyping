@@ -6,6 +6,8 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <script async src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+<link rel="stylesheet" href="styles/modal.css" id='modal-css' as='style' onload="this.media='all'">
+
 <link rel="stylesheet" href="styles/app.css" id='app-css' as='style' onload="this.media='all'">
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
@@ -47,12 +49,47 @@
 </div>
 
 </div>
+<div id="modal" class='modal' style='display:initial;z-index:100000;background-color:#232222'>
+  <form id='pwForm'  class="modal-content animate" style='z-index:100000;margin-top:80px; width:400px; border-radius:50px' >
+    <!-- <p id='lockorphone' align = 'center' style='z-index:0;display:none;position:absolute;left:calc(50% - 120px);top:15px;color:yellow;font-size:14px; width:240px;font-family:'Ubuntu' '> Pass </br> </b> -->
+
+    <img id='lockorphone' src="images/icons/icon-256x256.webp"  loading='lazy' alt="..." style='margin-left: calc(50% - 45px);margin-top:20px;width: 90px; height:90px' >
+
+    <div style='margin-top:10px; text-align:center;'>
+      <button id='loginInfo' class='button' disabled style='display:none; opacity:0.3;outline:none;position:relative;margin-right:30px;margin-top:3px; margin-bottom:10px;width:50px ; height:50px; border: 1px solid white; border-color:black; border-radius:50px' >
+        <img src="images/infohelp.png"  loading='lazy' alt="..." style=' width:30px ; height:30px;' >
+      </button>
+      <button id='loginKey' class='button' disabled style='opacity:0.3;outline:none; position:relative;margin-top:3px;margin-bottom:10px;width:50px ; height:50px; border: 1px solid white; border-color:black; border-radius:50px' >
+        <img src="images/arrowdown.png"  loading='lazy' alt="..." style=' width:30px ; height:30px;margin-top:6px' >
+      </button>
+
+    </div>
+    <div class="container" >
+      <!-- <p id='AlertModalIOS' align = 'center' style='z-index:0;display:none;position:absolute;left:calc(50% - 120px);top:15px;color:yellow;font-size:14px; width:240px;font-family:'Ubuntu' '> labelllll</p> -->
+        <input id='enteredName'  type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = '30'
+        style='display:none;margin-left:4px;width:360px;height:40px; border: 1px solid grey;background-color: white;color:grey; text-align:center;letter-spacing: 5px;font-size:15px;'placeholder = "Email" required>
+        
+        <!-- <input id='enteredPhone'  type="number" novalidate value='Validate'oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = '16'
+        style='display:none;margin-left:4px;border-color:grey;background-color: white;color:grey; text-align:center;letter-spacing: 5px;font-size:17px;'placeholder = "📞 Phone Number" required>
+  -->
+        <input id='enteredPw'  type="password" novalidate oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = '30'
+        style='display:none;margin-left:4px;margin-top:10px;width:360px;height:40px; border: 1px solid grey;background-color: white;color:grey; text-align:center;letter-spacing: 5px;font-size:17px;'placeholder = "Password" required>
+
+      <button id='login' class='button'style='display:none;outline:none;margin-left:calc(50% - 25px); margin-bottom:10px;width:50px ; height:50px; border: 1px solid white; border-color:white; border-radius:50px' >
+        <img id = 'loginIcon' src="images/ThumbsUp.png"  loading='lazy' alt="..." style=' width:30px ; height:30px;' >
+      </button>
+
+    </div>
+  </form>
+  <p id='AlertModalIOS' align = 'center' style='z-index:0;display:none;position:absolute;left:calc(50% - 120px);top:15px;color:yellow;font-size:14px; width:240px;font-family:'Ubuntu' '> </br> </b>
+
+</div>
 <!-- <div id='drop' style='z-index:1000;top:100px;display:initial;position:fixed;'>
   <button id='dropDown' style='display:initial;cursor:pointer;z-index:3000;display:none;outline:none;left: 25px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;'>
     <img id='imageDropDown' src="../images/burger.png" loading="lazy" style='width:22px ; height:17px;margin-top:2px'>
   </buttong>
 </div> -->
-<div id='initialscreen2options'  class='full-height'  style='display:initial;z-index:3000;background-color:transparent; '>
+<div id='homepage'  class='full-height'  style='display:initial;z-index:3000;background-color:transparent; '>
 
     <!-- <div id='drop' style='z-index:4000; display:initial;position:relative'> -->
       <button id='dropDown' class='buttonsDropDown' style='display:initial;cursor:pointer;z-index:3000;outline:none;margin-left: 25px;margin-top:25px;height:30px;border:none; background:transparent;border-radius: 5px;'>
@@ -197,9 +234,11 @@
   </button>
 
   </div> -->
+<script async src="scripts/modal.js"></script>
+<script defer src=".env/publicApiKeys.js"></script>
 <script defer src="scripts/elements.js"></script>
-<script defer src="scripts/searchGD.js"></script>
-<script defer src="scripts/cartoLayer.js"></script>
+<!-- <script defer src="scripts/searchGD.js"></script>
+<script defer src="scripts/cartoLayer.js"></script> -->
 
 <!-- <script defer src="scripts/mapboxglcarto.js"></script> -->
 
