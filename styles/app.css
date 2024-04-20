@@ -1,0 +1,370 @@
+html,body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    overflow:hidden;
+    /* font-family:Ubuntu; */
+    background-color:#232222;
+    min-height: 100%;
+    max-height: 100%;
+
+}
+h1,h2,h3,h4,h5,p{
+  font-family:Ubuntu;
+}
+
+map {
+    position:relative;
+    margin-bottom:100;
+    width: 100%;
+    height:100%;
+}
+
+.full-height{
+  height:100%;
+  position:absolute;
+top:0px;
+right:0px;
+bottom:0px;
+left:0px;
+
+}
+.buttonInitial{
+position:absolute;
+font-family:Ubuntu, Helvetica, Arial;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+
+
+/* transition: 0.5s all; */
+/* transition-duration: 500ms; */
+}
+
+.fileInput {
+    display: none;
+    opacity: 0;
+width: 0.1px;
+height: 0.1px;
+position: absolute;
+}
+
+.easyButton1 {
+  background-color:yellow;
+  outline:none;
+}
+
+.buttonDelete {
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+  margin:5px;
+  background-color: white; /* Green */
+  padding: 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid white;
+  position:relative;
+  outline:none;
+  transition: 0.2s all;
+
+}
+.buttonDelete:active{
+  /* transform: scale(0.9); */
+  background-color: #D3D2D2;
+  border: 2px solid #D3D2D2;
+}
+.button {
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+  margin:5px;
+  background-color: white; /* Green */
+  padding: 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid white;
+  position:relative;
+  outline:none;
+  transition: 0.2s all;
+
+}
+.button:active{
+  /* transform: scale(0.9); */
+  background-color: #D3D2D2;
+  border: 2px solid #D3D2D2;
+}
+
+.buttonActivatePlay{
+  border: 4px solid white;
+  outline:none;
+  transition: 0.2s all;
+}
+.buttonActivatePlay:active{
+  /* transform: scale(0.9); */
+  background-color: #D3D2D2;
+  border: 2px solid #D3D2D2;
+}
+
+.popupButton:disabled{
+  color:black
+}
+
+.attributeButtons{
+  border: 8px solid transparent;
+  outline:none;
+  transition: 0.2s all;
+
+}
+.attributeButtons:active{
+  /* transform: scale(0.9); */
+  background-color: #D3D2D2;
+  border: 2px solid #D3D2D2;
+}
+
+.audioButtons{
+  border: 2px solid transparent;
+  outline:none;
+  transition: 0.2s all;
+}
+.audioButtons:active{
+  /* transform: scale(0.9); */
+  background-color: #D3D2D2;
+  border: 2px solid #D3D2D2;
+}
+
+.buttonShare {
+  border-radius: 100px;
+  margin:0px;
+  width:200px;
+  height:200px;
+  left:50%;
+  margin-left:-100px;
+  background-color: white;
+  padding: 0px 0px; */
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid white;
+  outline:none;
+  transition: 0.2s all;
+}
+.buttonShare:active{
+  /* transform: scale(0.9); */
+  background-color: #D3D2D2;
+  border: 2px solid #D3D2D2;
+}
+
+* {
+  font-family: Arial, Helvetica, san-serif;
+  /* font-family: Helvetica, Tahoma, sans-serif !important; */
+
+}
+
+.span6 {
+  /* the bar is 100% of its size minus the 190px space used for the other 3 buttons and their margins */
+  width: calc(100% - 125px);
+  height:40px;
+  border-radius: 2px;
+  display: inline-block;
+  z-index: 10;
+  margin-top:-7px;
+  font-family:Ubuntu, Helvetica, Arial;
+
+}
+.inputtext {
+  background-color: white;
+  border:none;
+  font-family:Ubuntu, Helvetica, Arial;
+  font-size: 14px
+
+}
+.inputtext:focus{
+outline:none
+}
+
+.emojionearea-editor:not(.inline) {
+  min-height: 2em!important;
+  z-index: 10;
+}
+
+.emojioneemoji{
+height:20px;  /*  to set the size of  both the emoji in the text box and the pop up. Both are 4px smaller than in the wrapper*/
+}
+
+a, a:visited, a:hover, a:active {color:grey;text-decoration:none}  /* Selected link   */
+
+.gridCellForImportExportButtons{
+  /* overflow-y:auto; */
+
+  z-index:1000;
+  position:absolute;
+  margin-top: 0px;
+  background-color: white;
+  height:100%;
+  width:100%;
+  overflow-y: scroll !important;
+
+display: inline-grid;
+/* text-align: center; */
+
+align-items: center;
+justify-items: center;
+row-gap:2px;
+column-gap:2px;
+
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(6, 1fr);
+
+
+}
+.hiddenButtons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  /* left:50%; */
+  width:150px;
+  height:80px;
+  border-radius: 20px;
+  border: 2px solid black;
+  background-color: grey; /* Green */
+  text-decoration: none;
+  border: 2px solid white;
+  position:relative;
+  outline:none;
+  transition: 0.2s all;
+}
+.hiddenButtons:active{
+  transform: scale(0.8);
+
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+
+}
+.custom-file-input::before {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+  font-size: 8pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.GPSIconShadow{
+border-radius:50%;
+-webkit-mask:linear-gradient(to top, black, 90%, #0000);  // this fuck!
+
+}
+.buttonsCameraScreenshot{
+
+  border: 0px solid yellow;
+
+  outline:none;
+  transition: 0.7s all;
+  background: linear-gradient(180deg,#e6e6e6 0%,rgba(0, 0, 0, 0.35) 65%, rgba(38, 38, 38, 0.6) 67%,rgba(0, 0, 0, 0.35) 100%);
+border-radius: 5px;
+}
+.buttonsCameraScreenshot:active{
+  transform: scale(0.6);
+
+}
+.switch {
+  /* position: absolute; */
+  vertical-align: middle;
+position: relative;
+display: inline-block;
+  width: 60px;
+  height: 34px;
+
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sliderDataSovereignty {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.sliderDataSovereignty:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .sliderDataSovereignty {
+  background-color: #2196F3;
+}
+
+input:focus + .sliderDataSovereignty {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .sliderDataSovereignty:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.sliderDataSovereignty {
+  border-radius: 34px;
+}
+
+.sliderDataSovereignty:before {
+  border-radius: 50%;
+}
+.switch-label {
+    margin-right: 10px;
+}
+.sliderWrapper{display: flex;margin:24px 24px 24px 24px;postion:relative;}
+.sliderWrapper div{display: inline-block;line-height:60px;}
+.inputs{
+  height: 100%;
+  margin-top: 100px;
+  font-family:Ubuntu, Helvetica, Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.inputstext{
+  font-family:Ubuntu, Helvetica, Arial;
+  font-size:18px;
+  border-radius: 5px;
+  border: 0px solid #DEDDDD;
+
+
+}
+.bot{
+  font-family:Ubuntu, Helvetica, Arial;
+
+}

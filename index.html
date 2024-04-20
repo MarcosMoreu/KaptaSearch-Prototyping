@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a globe on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<script async src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+<link rel="stylesheet" href="styles/app.css" id='app-css' as='style' onload="this.media='all'">
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+
+</head>
+<h3 id='Alert' align = 'center' style='display:initial;z-index:3;position:absolute;text-align:center; width:60%;margin-left:20%;top:25px;display:none;color:yellow;font-size:15px;'>dddd
+</h3>
+<h4 id='MapLoading' data-html2canvas-ignore align = 'center' style='display:none;z-index:3;position:absolute;left:calc(50% - 25px);top:200px;display:none; z-index:3'>
+  <img id='maploadinggif' data-html2canvas-ignore src="images/checkingPw.gif"  loading='lazy' alt="..." style='width:50px ; height:50px;' >
+</h4>
+<h5 id='bot' class='bot' align = 'center' style=' font-weight:normal;padding-left: 10px;z-index:3;position:absolute;text-align:center; height: 40px; width:50%;line-height:40px;margin-left:25%;top:25px;display:none;background-color:#616060;border-radius:20px;font-size:15px;'>
+</h5>
+<body id='body' style='height:100%;background-color:#232222'>
+<!-- <iframe id='cartomap' width="100%" height="100%" src="https://pinea.app.carto.com/map/00a98901-6423-4cf2-8446-58c4d5890445"></iframe> -->
+<button id='seefullchat' class='button' style='display:none; cursor:pointer; background-color:#DEDDDD; border-color:#DEDDDD; margin-top:55px;margin-left:calc(100% - 100px) '>
+  <img src="images/arrowLeft.png" alt="..." style='width:30px; height:30px'>
+</button>
+<div id='switches' style='z-index:1000;top:100px;display:none;position:fixed;'>
+<div class="sliderWrapper" >
+<div> Test 1&nbsp;&nbsp;</div>
+  <label class="switch">
+    <input id='switch1' type="checkbox">
+    <span class="sliderDataSovereignty"></span>
+  </label>
+</div>
+<div class="sliderWrapper" >
+<div> Test 1</div>
+  <label class="switch">
+    <input id='switch2' type="checkbox" checked>
+    <span class="sliderDataSovereignty"></span>
+  </label>
+</div>
+<div class="sliderWrapper" >
+<div> Test 1</div>
+  <label class="switch">
+    <input id='switch3' type="checkbox">
+    <span class="sliderDataSovereignty"></span>
+  </label>
+</div>
+
+</div>
+<!-- <div id='drop' style='z-index:1000;top:100px;display:initial;position:fixed;'>
+  <button id='dropDown' style='display:initial;cursor:pointer;z-index:3000;display:none;outline:none;left: 25px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;'>
+    <img id='imageDropDown' src="../images/burger.png" loading="lazy" style='width:22px ; height:17px;margin-top:2px'>
+  </buttong>
+</div> -->
+<div id='initialscreen2options'  class='full-height'  style='display:initial;z-index:3000;background-color:transparent; '>
+
+    <!-- <div id='drop' style='z-index:4000; display:initial;position:relative'> -->
+      <button id='dropDown' class='buttonsDropDown' style='display:initial;cursor:pointer;z-index:3000;outline:none;margin-left: 25px;margin-top:25px;height:30px;border:none; background:transparent;border-radius: 5px;'>
+        <img id='imageDropDown' src="../images/burger.png" loading="lazy" style='width:22px ; height:17px;margin-top:2px'>
+      </button>
+    <!-- </div> -->
+    <!-- <div id='about' > -->
+      <button id='aboutButton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;outline:none;position: absolute;left: 85px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;color:grey;font-size:18px; font-family: 'Ubuntu''>
+        About
+      </button>
+    <!-- </div> -->
+
+    <!-- <div id='technology' > -->
+      <button id='technologyButton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;outline:none;position: absolute;left: 180px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;color:grey;font-size:18px; font-family: 'Ubuntu''>
+        Technology
+      </button>
+    <!-- </div> -->
+
+    <!-- <div id='Methodology' > -->
+      <button id='methodologyButton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;outline:none;position: absolute;left: 320px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;color:grey;font-size:18px; font-family: 'Ubuntu''>
+        Methodology
+      </button>
+    <!-- </div> -->
+    <div id='burgerGoback' >
+      <button id='burgerGobackbutton' class='buttonsGoBack' style='cursor:pointer;z-index:2001;display:none;position: absolute;right: calc(50% - 25px);top:25px;width:50px ; height:50px; border-radius:50px;border:none; background-color: #DEDDDD'>
+        <img src="../images/arrowLeft.png" loading="lazy" style='width:30px ; height:30px'>
+      </button>
+
+    </div>
+    <div id='formGoback' >
+      <button id='formGobackbutton' class='buttonsGoBack' style='cursor:pointer;z-index:2001;display:none;position: absolute;right: calc(50% - 25px);top:25px;width:50px ; height:50px; border-radius:50px;border:none;background-color: #DEDDDD;'>
+        <img src="../images/arrowLeft.png" loading="lazy" style='width:30px ; height:30px'>
+      </button>
+
+    </div>
+    <div id='formGoback' >
+      <button id='finishandstart' class='buttonsGoBack' class='inputstext' style='cursor:pointer;z-index:2001;display:none;position: absolute;right: calc(50% - 100px);bottom:125px;width:200px ; height:80px; border-radius:25px;;border: 2px solid black;background-color: green;font-size:18px'>
+        <!-- <img src="../images/arrowLeft.png" loading="lazy" style='width:30px ; height:30px'> -->
+        Go back to search
+      </button>
+
+    </div>
+    <div id='submitrequest' >
+      <button id='submitrequestbutton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;position: absolute;margin-left: calc(50% - 150px);bottom:50px;height:65px;width:300px;border: 2px solid black; color: black;background:#616060;border-radius: 20px;font-size:18px'>
+        <!-- <img src="../images/sendComment.png" loading="lazy" style='width:15px ; height:15px;margin-top:2px'> -->
+        Submit your request
+    </button>
+
+    </div>
+    <div id='aboutContent' align='center' style='z-index:1000;position:relative;display:none;text-align:center;;'>
+    <p style='text-align:left;color:white; margin-top:120px; font-size:10;margin-left:15px; margin-right:15px'>
+        ◽ This is xxxxxxxx
+        <br><br>◽ xxxxxxxxx University College London (UCL), Dept. of Geography, ExCiteS lab.©
+        <br><br>◽ Collaborators: Environmental & Economic Resource Centre, Nigeria; Omo-Turkana Research Network, Ethiopia & Kenya; Sekenani EnviroTech Center, Kenya.
+        <br><br>◽ Acknowledgments: European Research Council (ERC), UK Research and Innovation (UKRI), FORMAS, CARTO, Planet, European Space Agency, Sinergise. <br>Code credits ...
+        <br><br>❗ Please consider both the positive and negative impacts of mapping the land when using this app (and others).<br><br>
+    </div>
+    <div id='technologyContent' align='center' style='z-index:1000;position:relative;display:none;text-align:center;' >
+      <p style='text-align:left;color:white; margin-top:120px; font-size:10;margin-left:15px; margin-right:15px'>
+          ◽ This is the tech
+          <br><br>◽ aaaaaaaa
+          <br><br>◽ bbbbbbbbbbb
+          <br><br>◽ Acccccc
+          <br><br>❗ dddddddddd
+    </div>
+    <div id='methodologyContent' align='center'style='z-index:1000;position:relative;display:none;text-align:center;' >
+      <p style='text-align:left;color:white; margin-top:120px; font-size:10;margin-left:15px; margin-right:15px'>
+          ◽ This is the methodologyButton
+          <br><br>◽ vvvvvvvvvvvvvv
+          <br><br>◽ bbbbbbbbbbbbbbb
+          <br><br>◽ nnnnnnnnnnnnnnn
+          <br><br>❗fffffffffffffffff
+    </div>
+
+  <p id='finalmessage' style='z-index:0;display:none;text-align: center;position:fixed;width:100%;top:15px;color:#7E1701;font-size:18px; font-family:'Ubuntu' '> Submitted......now share with......</p>
+  <p id='loadmapmessage' style='z-index:0;display:none;text-align: center;position:fixed;width:100%;top:15px;color:#7E1701;font-size:18px; font-family:'Ubuntu' '> Loading map</p>
+  <p id='requestsubmitedmessage' style='z-index:0;display:none;text-align: center;position:fixed;width:100%;top:150px;color:#DEDDDD;font-size:18px; font-family:'Ubuntu' '> Your request has been submitted. </br> We will process your request and get back to you ....</p>
+
+<div id='inputs' align:center class='inputs' style='display:none; '>
+  <div id='inputcontainer1' style='margin-left:calc(50% - 150px);margin-top: 125px; width: 500px; color:white' ><label class='inputstext' for="input1">Name of the crowdsourcing campaign</label></br></br><input type="text" class='inputstext' style='width:300px; height:40px;' id="input1" placeholder="..."></div></br></br>
+  <div id='inputcontainer2' style='margin-left:calc(50% - 150px);color:white;' ><label class='inputstext' for="input2">Description of the campaign</label></br></br><input type="text" class='inputstext' style='width:300px; height:40px;'id="input2" placeholder="..."></div></br></br>
+  <div id='inputcontainer3' style='margin-left:calc(50% - 150px);color:white' ><label class='inputstext' for="input3">Budget</label></br></br><input type="text" class='inputstext' style='width:300px; height:40px;'id="input3" placeholder="..."></div></br></br>
+  <div id='inputcontainer4' style='margin-left:calc(50% - 150px);color:white' ><label class='inputstext' for="input4">Organisation name</label></br></br><input type="text" class='inputstext' style='width:300px; height:40px;'id="input4" placeholder="..."></div></br></br>
+  <div id='inputcontainer5' style='margin-left:calc(50% - 150px);color:white' ><label class='inputstext' for="input5">Email address</label></br></br><input type="text" class='inputstext' style='width:300px; height:40px;'id="input5" placeholder="..."></div></br></br>
+</div>
+
+  <button id='confirmDataSubmision' class='button' aria-label = 'armchair' style='vertical-align: middle;display:none;z-index:100;outline:none;margin-left:calc(50% - 100px); top:calc(90% - 150px);width:200px ; height:50px; border: 2px solid white; border-color:black; border-radius:15px; font-size:18px;' >
+    <!-- <img src="images/ThumbsUpGreen.png"  loading='lazy' alt="..." style='width:30px ; height:30px;margin-left:-2px'> -->
+  </button>
+  <button id='gobackToMap' class='button' aria-label = 'field' style='cursor:pointer;vertical-align: middle;display:none;z-index:100;outline:none;margin-left:calc(50% - 25px); top:calc(90% - 50px);width:50px ; height:50px; border: 2px solid white; border-color:black; background-color: #DEDDDD;border-radius:25px; font-size:18px;' >
+    <img src="images/backButton.png"  alt="..." loading='lazy' style='width:30px ; height:30px'>
+  </button>
+  <select id="languages" class='buttonInitial' style='position:absolute;cursor:pointer;margin-left:calc(100% - 150px);display:initial;z-index:100;outline:none;margin-top:-45px;width:150px ; height:50px; border: 0px solid white;background-color: transparent;border-color:none; border-radius:15px; color:grey;font-size:18px;' >
+    <option align = 'center' value="en" style='color:grey;background-color: #232222;'>🇬🇧 English</option>
+   <option align = 'center' value="es" style='color:grey;background-color: #232222;'>🇪🇸 Español</option>
+   <option align = 'center' value="fr" style='color:grey;background-color: #232222;'>🇫🇷 Français</option>
+  </select>
+
+  <button id='askthemap' class='buttonInitial'style='display:initial;cursor:pointer;display:initial;z-index:100;outline:none;margin-left:calc(50% - 60px); background-color: #740202;top:calc(50% - 60px);width:120px ; height:120px; border: 2px solid white; border-color:black; border-radius:60px; font-size:18px;' >
+    <!-- <img src="images/listen.png"  alt="..." style=' width:50px ; height:50px;' > </br>Ask the map -->
+    Search </br> Ground </br> Data
+  </button>
+
+
+</div>
+<p id='kaptainitialscreen' style='z-index:5000;display:initial;text-align: center;position:fixed;width:100%;bottom:-1px;font-size:15px;color:grey; font-family:'Ubuntu' '> by Wisdom of the Crowd Labs (WCL)</p>
+
+<div id="map" style='background-color: #616060;height:100%; z-index:2; position:relative;'>
+  <!-- <a href="http://mapbox.com/about/maps" class='mapbox-logo' target="_blank"></a>
+  <div class="mapboxgl-ctrl-attrib-inner">
+    <a href="https://www.mapbox.com/about/maps/">© Mapboxxxxxx | </a>
+    <a href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
+    <a href="https://www.mapbox.com/map-feedback/" target="_blank"><strong></strong></a>
+  </div> -->
+</div>
+
+<div id='classification' style='display: flex; justify-content: center; align-items: center; left:19%;width: 70%; position: fixed; bottom: 5px; transform: translateY(-50%); z-index: 3;'>
+    <button id='backtohomepage' class='button' aria-label='backEditDelete' style='display:none; cursor:pointer; background-color:#DEDDDD; border-color:#DEDDDD; margin-bottom:10px;margin-left:10px; margin-right: 10px;'>
+    <img src="images/arrowLeft.png" alt="..." style='width:30px; height:30px'>
+  </button>
+  <!-- Assuming emoji is another button or input for simplification -->
+
+  <input id="emojionearea" class="inputtext" placeholder='Search ground data...' style='display:none;margin-bottom:15px;margin-left:10px; margin-right: 10px;width:calc(100% - 300px);vertical-align:middle;  height:40px; border-radius: 20px; border-color:white; background-color: #DEDDDD; font-size:16px; padding:0px 15px;'>
+  <button id='searchWocMap' class='button' aria-label='searchWocMap' style='display:none;cursor:pointer; background-color: #DEDDDD; border-color: #DEDDDD; margin-bottom:10px;margin-left:10px; margin-right: 10px;'>
+    <img id='imagesearchWocMap' src="images/arrowUp.png" alt="..." style='width:30px; height:30px'>
+  </button>
+
+</div>
+
+<!-- <div id='classification' align:centre style='display:none; width:100%;vertical-align:top;z-index:3; position:fixed; margin-top:-90px;'>
+
+  <button id='backtohomepage' class='button' aria-label = 'backEditDelete' style='cursor:pointer;display:initial; left: calc(15% - 0px);background-color:#DEDDDD;; border-color:#DEDDDD'>
+    <img src="images/arrowLeft.png" loading='lazy'  alt="..." style='margin-left:2px; width:30px ; height:30px'>
+  </button>
+  <div id='emoji' class="span6" style='left: calc(15% + 20px);' >
+    <div id='span6' class="span6" style='left: calc(15% + 20px);cursor:pointer;vertical-align:middle;display:inline-block; position:flex; height:50px;width:100%'>
+      <input id="emojionearea" class="inputtext" placeholder='e.g. I need the location and condition of all water pumps in this area' style='left: calc(15% + 20px);vertical-align:middle;  margin-left: 30px; height:40px;border-radius: 20px;border-color:white; background-color: #DEDDDD;font-size:16px;padding:0px 15px;'></input>
+    </div>
+  </div>
+  <button id='searchWocMap' class='button' aria-label = 'searchWocMap' style='cursor:pointer;display:initial;margin-left: 30px;background-color: #DEDDDD;border-color: #DEDDDD' >
+    <img id='imagesearchWocMap' src="images/arrowUp.png" loading='lazy'  alt="..." style='width:30px ; height:30px '>
+  </button>
+
+  </div> -->
+<script defer src="scripts/elements.js"></script>
+<script defer src="scripts/searchGD.js"></script>
+<script defer src="scripts/cartoLayer.js"></script>
+
+<!-- <script defer src="scripts/mapboxglcarto.js"></script> -->
+
+</body>
+
+
+</html>
