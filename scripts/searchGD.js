@@ -275,7 +275,28 @@ document.getElementById('searchWocMap').onclick = function(e){
               var filenamesub2 = localStorage.getItem('username')
               // var filenamesub3 = document.getElementById('inputtopic').value
               var filename = filenamesub1 + ' ' + filenamesub2 + ' ' + timestamp + '.geojson'  
-              var geojsonToString = JSON.stringify(datatoexport)
+              //to decode the attribute3s
+              function decodeGeoJsonAttributes(datatoexport) {
+             
+                // Create a deep copy of the GeoJSON to avoid mutating the original input
+                const modifiedGeoJson = JSON.parse(JSON.stringify(datatoexport));
+            
+                // Loop through each feature in the collection
+                modifiedGeoJson.features.forEach(feature => {
+                    if (feature.properties && feature.properties.attribute3s) {
+                        // Decode the 'attribute3s' property
+                        try {
+                            feature.properties.attribute3s = decodeURIComponent(feature.properties.attribute3s);
+                        } catch (e) {
+                            console.error('Error decoding attribute3s:', e);
+                        }
+                    }
+                });
+            
+                return modifiedGeoJson;
+            }
+              const decodeddatatoexport = decodeGeoJsonAttributes(datatoexport);
+              var geojsonToString = JSON.stringify(decodeddatatoexport)
               var dataToExport = 'data:text/json;charset=utf-8,' + encodeURIComponent(geojsonToString);
               var toDownloadGeoJSON = document.createElement('a');
               toDownloadGeoJSON.setAttribute('href', dataToExport);
