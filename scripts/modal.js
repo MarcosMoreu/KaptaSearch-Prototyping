@@ -240,20 +240,20 @@ if(localStorage.getItem('pwCorrect')){
                 var errorMessage = e.message;
               })
   
-          var openAppPwSuccesful = function(){
+          var openAppPwSuccesful = function(){ 
                 if(authentication == 'successful' && done == true){
-                    try{
-                        $.getScript({
-                           cache:false,
-                          url:'scripts/searchGD.js'
-                        }),
-                        $.getScript({
-                           cache:false,
-                          url:'scripts/cartoLayer.js',
+                    // try{
+                    //     $.getScript({
+                    //        cache:true,
+                    //       url:'scripts/searchGD.js'
+                    //     }),
+                    //     $.getScript({
+                    //        cache:true,
+                    //       url:'scripts/cartoLayer.js',
   
-                        })
-                      }catch(e){
-                      }
+                    //     })
+                    //   }catch(e){
+                    //   }
 
                   // document.getElementById('login').style.borderColor= 'white'
                   valueEnteredName = document.getElementById('enteredName').value
@@ -268,7 +268,7 @@ if(localStorage.getItem('pwCorrect')){
                    localStorage.setItem('pwCorrect', true);
                    var phoneNumberNoprefix = document.getElementById('enteredPw').value.substr(4, 13)
                    if(phoneNumberNoprefix == ''){
-                     phoneNumberNoprefix = 0123456789
+                     phoneNumberNoprefix = '0123456789'
                    }else{
                      localStorage.setItem('phoneNumber', phoneNumberNoprefix);
                    }
