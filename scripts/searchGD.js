@@ -20,20 +20,6 @@ document.getElementById('searchWocMap').onclick = function(e){
     console.log('no layer to remove')
   }
 
-  // setTimeout(function(){
-  //   document.getElementById("bot").style.fontSize = "16px";
-  //   document.getElementById("bot").style.color = 'white';
-  //   document.getElementById('bot').innerHTML = '    Zoom to the area of interest'
-  //   document.getElementById("bot").style.display = 'initial'
-  // },200)
-//   document.getElementById("bot").style.backgroundColor = '#888686'
-
-// setTimeout(function(){
-//   document.getElementById("bot").style.backgroundColor = '#616060'
-
-// },100)
-
-
   console.log('searchresult', searchResult)
   var emojioneareaeditor0 = document.getElementById('emojionearea')
   checkTextbox = setInterval(function() {
@@ -49,18 +35,7 @@ document.getElementById('searchWocMap').onclick = function(e){
   var datePeriodAgoReplaceComaInvert = '2010-1-1'
   var sapelliProjectIdentifier = '111'
   var boxContent = document.getElementById('emojionearea').value
-  // var sqlQueryWithoutCondition = "SELECT geom, contributionid, areapolygon, lengthline, date, attribute1s, attribute2s, attribute3s, attribute11n, attribute12n, attribute13n, attribute14n, attribute15n FROM `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.gxdb_QMM_Madagascar` WHERE sapprojid='" +sapelliProjectIdentifier+ "' AND (attribute1s ";
-  //
-  // var sqlCondition =
-  //  "LIKE '%" + boxContent +"%')" //exact value
-  //
-  //  +" AND (timestamp>'"+datePeriodAgoReplaceComaInvert +"')";
-  // var sqlQuerySelect = sqlQueryWithoutCondition + sqlCondition
 
-  // var sqlQuerySelect = "SELECT geom FROM `carto-demo-data.demo_tables.dataappeal_restaurants_and_cafes_berlin_cpg`"
-  // var sqlQuerySelectEncoded = encodeURI(sqlQuerySelect)
-
-  //   requestCartoData(sqlQuerySelectEncoded)
 ///////////////////////////////////////////////////////////////////////////////
 
   console.log(emojioneareaeditor0.value)
@@ -84,24 +59,8 @@ document.getElementById('searchWocMap').onclick = function(e){
           FROM \`carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_private\`
           WHERE ${whereClause}
           `;
-
-            // Split the input text into an array of words
-            // let words = boxContent.split(' ');
-
-            // // Construct the WHERE clause with specificity in mind
-            // let whereClause = words.map(word => `mainattribute LIKE '%${word}%'`).join(' OR ');
-
-            // // Ensure the query is constructed correctly
-            // let sqlQuery = `
-            // SELECT geom 
-            // FROM \`carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_private\`
-            // WHERE ${whereClause};
-            // `;
-
-            // console.log(sqlQuery);
           
           var sqlQuerySelectEncoded = encodeURI(sqlQuerySelect)
-
 
             requestCartoData(sqlQuerySelectEncoded)
             document.getElementById("bot").style.fontSize = "16px";
@@ -134,27 +93,7 @@ document.getElementById('searchWocMap').onclick = function(e){
               document.getElementById("bot").style.display = 'initial'
             }, 1000);
 
-          // document.getElementById('seefullchat').style.display = 'initial'
-        // }else if(boxContent.includes('testeo')){
-        //   console.log('testeo query ') 
-
-        //   console.log('searchresult', searchResult)
-
-        //   searchResult = 'data'
-        //   var sqlQuerySelect = "SELECT geom FROM `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_private` WHERE mainattribute = 'testeo'"
-        //   var sqlQuerySelectEncoded = encodeURI(sqlQuerySelect)
-        
-        //     requestCartoData(sqlQuerySelectEncoded)
-        //     document.getElementById("bot").style.fontSize = "16px";
-        //     document.getElementById("bot").style.color = 'white';
-        //     document.getElementById('bot').innerHTML = '    Searching...'
-        //     document.getElementById("bot").style.display = 'initial'
-        //     setTimeout(() => {
-        //       document.getElementById("bot").style.fontSize = "16px";
-        //       document.getElementById("bot").style.color = 'white';
-        //       document.getElementById('bot').innerHTML = '    Do you want to download or query this ground data? (yes/no)'
-        //       document.getElementById("bot").style.display = 'initial'
-        //     }, 1000);
+    
         }else if(boxContent.includes('please') && boxContent.includes('water')){
           console.log('water ethiopia query ') 
 
@@ -219,53 +158,9 @@ document.getElementById('searchWocMap').onclick = function(e){
               document.getElementById("bot").style.display = 'initial'
 
               searchResult = 'data_zoom'
-            // }else if(searchResult == 'data_zoom'){//form to request data
-            //   document.getElementById('initialscreen2options').style.display = 'initial'
-            //   document.getElementById('formGobackbutton').style.display = 'initial'
-            //   document.getElementById('submitrequestbutton').style.display = 'initial'
-            //   document.getElementById('inputs').style.display = 'initial'
-
-            //   document.getElementById('labelinput1').innerHTML = 'Name of the crowdsourcing campaign request'
-            //   document.getElementById('labelinput2').innerHTML = 'Description of the campaign'
-            //   document.getElementById('labelinput3').innerHTML = 'Budget (80% of the amount goes the local data collectors❗)'
-            //   document.getElementById('labelinput4').innerHTML = 'Organisation'
-            //   document.getElementById('labelinput5').innerHTML = 'Email address'
-
-            //   document.getElementById('bot').style.display = 'none'
-            //   document.getElementById('emojionearea').style.display = 'none'
-            //   document.getElementById('askthemap').style.display = 'none'
-            //   document.getElementById('dropDown').style.display = 'none'
-            //   document.getElementById('languages').style.display = 'none'
-            //   document.getElementById('kaptainitialscreen').style.display = 'none'
-            //   document.getElementById('map').style.display = 'none'
-            //   document.getElementById('searchWocMap').style.display = 'none'
-            //   document.getElementById('backtohomepage').style.display = 'none'
-              // boxContent = 'This is my area of interest'
- 
-            
-
-
-
+      
           }else if(searchResult == 'data'){
-            // }else if(searchResult == 'data_zoom'){//form to request data
-              // document.getElementById('homepage').style.display = 'initial'
-              // document.getElementById('formGobackbutton').style.display = 'initial'
-              // document.getElementById('submitrequestbutton').style.display = 'initial'
-              // document.getElementById('inputs').style.display = 'initial'
-              // document.getElementById('labelinput1').innerHTML = 'Name of the ground data request'
-              // document.getElementById('labelinput2').innerHTML = 'Description of the ground data use'
-              // document.getElementById('labelinput3').innerHTML = 'Donation (80% of the amount goes to the local data collectors❗)'
-              // document.getElementById('labelinput4').innerHTML = 'Organisation'
-              // document.getElementById('labelinput5').innerHTML = 'Email address'
-              // document.getElementById('bot').style.display = 'none'
-              // document.getElementById('emojionearea').style.display = 'none'
-              // document.getElementById('askthemap').style.display = 'none'
-              // document.getElementById('dropDown').style.display = 'none'
-              // document.getElementById('languages').style.display = 'none'
-              // document.getElementById('kaptainitialscreen').style.display = 'none'
-              // document.getElementById('map').style.display = 'none'
-              // document.getElementById('searchWocMap').style.display = 'none'
-              // document.getElementById('backtohomepage').style.display = 'none'
+          
               document.getElementById('bot').innerHTML = '    The data has been downloaded. Continue searching...' 
               var timeEnd = new Date();
               var date = timeEnd.getFullYear() + '-' + (timeEnd.getMonth() + 1) + '-' + timeEnd.getDate();
@@ -338,7 +233,6 @@ document.getElementById('searchWocMap').onclick = function(e){
           // searchResult = 'nodata'
         
         }else{
-          // document.getElementById("imagesearchWocMap").src = 'images/arrowRight.png'
           console.log('searchresult', searchResult)
 
           searchResult = 'nodata'
@@ -353,8 +247,6 @@ document.getElementById('searchWocMap').onclick = function(e){
             document.getElementById("bot").style.display = 'initial'
           }, 1000);
 
-          // document.getElementById('seefullchat').style.display = 'initial'
-
         }
       
         var emojioneareaeditor0 = document.getElementById('emojionearea')
@@ -364,36 +256,7 @@ document.getElementById('searchWocMap').onclick = function(e){
         return searchResult
       
     } 
-// }else{
 
-
-
-//     if(searchResult == 'data'){
-//       console.log('searchresult second click', searchResult)
-//       document.getElementById('initialscreen2options').style.display = 'initial'
-//       document.getElementById('formGobackbutton').style.display = 'initial'
-//       document.getElementById('submitrequestbutton').style.display = 'initial'
-//       document.getElementById('inputs').style.display = 'initial'
-//       document.getElementById('askthemap').style.display = 'none'
-//       document.getElementById('dropDown').style.display = 'none'
-//       document.getElementById('languages').style.display = 'none'
-//       document.getElementById('kaptainitialscreen').style.display = 'none'
-
-//     }else if(searchResult == 'nodata'){
-//       console.log('searchresult second click', searchResult)
-
-//         document.getElementById('initialscreen2options').style.display = 'initial'
-//         document.getElementById('formGobackbutton').style.display = 'initial'
-//         document.getElementById('submitrequestbutton').style.display = 'initial'
-//         document.getElementById('inputs').style.display = 'initial'
-//         document.getElementById('askthemap').style.display = 'none'
-//         document.getElementById('dropDown').style.display = 'none'
-//         document.getElementById('languages').style.display = 'none'
-//         document.getElementById('kaptainitialscreen').style.display = 'none'
-//       }
-// }
-
-// return searchResult
 
 
 

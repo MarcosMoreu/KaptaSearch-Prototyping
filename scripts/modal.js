@@ -1,12 +1,7 @@
 if(localStorage.getItem('pwCorrect')){
     document.getElementById('modal').style.display='none'
     document.getElementById('askthemap').innerHTML = 'Loading...'
-    // document.getElementById('askthemap').disabled = true
 
-    
-    // document.getElementById('KaptaLite').style.display='initial'
-    // document.getElementById('KaptaAdvanced').style.display='initial'
-    // document.getElementById('asktheteam').style.display='initial'
   }else{
     document.getElementById('modal').style.display='initial'
   }
@@ -44,66 +39,8 @@ if(localStorage.getItem('pwCorrect')){
     document.getElementById('login').style.opacity='0.4';
     document.getElementById('login').disabled = true;
   
-    // console.log('isfirstload??')
-    //$.getScript("lib/leaflet/plugins/Leaflet.draw-1.0.4/src/Leaflet.Draw.Event.js")
-      // Check if localStorage is available (IE8+) and make sure that the visited flag is not already set.
       if(localStorage.getItem('pwCorrect')){
-        // document.getElementById('languages').disabled = false
-        // document.getElementById('KaptaLite').disabled = false
-        // document.getElementById('KaptaAdvanced').disabled = false
-        // document.getElementById('asktheteam').disabled = false
-        // if (urlContainsHash == true && urlContainsGeoJSON == true){  // if url contains geojson (and coords)
-        //   document.getElementById('talk').style.opacity = 0
-        //   document.getElementById('listen').style.opacity = 0
-        // }
-        // if (urlContainsHash != true && urlContainsGeoJSON != true){  // if url contains geojson (and coords)
-  // if(sharetarget == false){
-    // setTimeout(function(){
-    //   if(homescreenorwhatsapplaunch == 'whatsapp'){
-    //     document.getElementById('chatmaploadinggif').style.display = 'initial'
-    //     // document.getElementById('KaptaLite').style.display = 'initial'
   
-  
-    //   }else{
-    //     // document.getElementById('languages').style.display = 'initial'
-    //     // document.getElementById('KaptaLite').style.display = 'initial'
-    //     // document.getElementById('KaptaAdvanced').style.display = 'initial'
-    //     // document.getElementById('asktheteam').style.display = 'initial'
-    //     // document.getElementById('kaptainitialscreen').style.display = 'initial'
-    //   }
-  
-    //   },300)
-  // }
-  
-        // }
-  
-        // document.getElementById('MapLoading').style.display = 'initial'
-        // document.getElementById('MapLoading').style.opacity = 0
-        // jQuery(document).ready(checkContainer);
-  
-        // function checkContainer () {
-        //   if($('#MapLoading').is(':visible')){ //if the container is visible on the page
-        //       initialiseMap() //map initialised AND LOADED (no modal)
-        //       var imagesToPreload = new Array()
-        //       function preload() {
-        //               for (i = 0; i < preload.arguments.length; i++) {
-        //                 imagesToPreload[i] = new Image()
-        //                 imagesToPreload[i].src = preload.arguments[i]
-        //                 //console.('image preloaded')
-        //               }
-        //             }
-        //             preload(
-        //               'images/checkingPw.gif'
-        //               // 'images/armchair.png','images/field.png','images/tvSmall.png',
-        //               // 'images/osm.png','images/myLayerPrivate.png','images/filterIcon.png',
-        //               // 'images/myLayerOpen.png',
-        //             )
-        //         isFirstTime = false;
-  
-        //   } else {
-        //     setTimeout(checkContainer, 50); //wait 50 ms, then try again
-        //   }
-        // }
   
       }else if(typeof window.localStorage !== "undefined" && !localStorage.getItem('visited')) {
         console.log('visited but no pw')
@@ -122,8 +59,7 @@ if(localStorage.getItem('pwCorrect')){
                 document.getElementById('login').style.opacity='1';
                 document.getElementById('login').disabled = false;
                 document.getElementById('login').style.borderColor= 'grey'
-  
-  
+   
               }
             })
           }catch(e){
@@ -179,41 +115,22 @@ if(localStorage.getItem('pwCorrect')){
     document.getElementById('loginInfo').disabled = false
     document.getElementById('loginKey').style.opacity = '1'
     document.getElementById('loginKey').disabled = false
-    // if(isIOS == true){
-    //   document.getElementById('AlertModalIOS').style.display = 'initial'
-    // }
-    // document.getElementById('AlertModalIOS').style.display = 'initial'
-    // document.getElementById("AlertModalIOS").style.fontFamily = 'Ubuntu'
     clearInterval(findFirebaseCredentials)
 
   
   },2900)
   
-//   document.getElementById('loginInfo').onclick = function(){
-//     window.location.href="https://wa.me/+34678380944";
-//   }
-  
+
   document.getElementById('loginKey').onclick = function(e){
-    // document.getElementById('AlertModalIOS').innerHTML = '</br></br> 📞 Enter your phone number 📞'
-    // document.getElementById('AlertModalIOS').style.display = 'initial'
-    // document.getElementById("AlertModalIOS").style.fontFamily = 'Ubuntu'
+
     e.preventDefault() //to avoid reload
       document.getElementById('loginKey').disabled = true
     document.getElementById('loginKey').style.display = 'none'
     document.getElementById('loginInfo').style.display = 'none'
-  
-    // setTimeout(function(){
-    //   document.getElementById('loginKey').style.opacity = '1'
-    //   document.getElementById('loginInfo').style.opacity = '1'
-    // },100)
-  
-    // document.getElementById('textPwScreen').style.display = 'initial';
-  
-    //runJSselectFeature()
+
     document.getElementById('loginKey').style.backgroundColor = '#D5D6D5'
     document.getElementById('enteredPw').style.display = 'initial';
     document.getElementById('enteredName').style.display = 'initial';
-    // document.getElementById('enteredPhone').style.display = 'initial';
   
     document.getElementById('login').style.display = 'initial';
   
@@ -230,12 +147,7 @@ if(localStorage.getItem('pwCorrect')){
     }catch(e){
       console.log('error disable enter key catched')
     }
-  //   setTimeout(function(){
-  //
-  //   document.getElementById('enteredPw').focus() //to open keyboard!!!
-  // },100)
-   //console.log(loaded)
-  //return loaded
+
   }
   
   var initialiseMap = function(){
@@ -269,19 +181,13 @@ if(localStorage.getItem('pwCorrect')){
     var state = document.readyState
     //console.(state,'state')
     if (document.readyState === 'complete' && localStorage.getItem('pwCorrect')) {
-      // $.getScript({
-      //    cache:true,
-      //   url:'scripts/customIcons_v3.js'
-      // })
-      // startSearchingLocation()
-    // document.getElementById('rose').click()
+
       setTimeout(function(){
         // requestCartoData()
       },1000)
     }
   }
   
-
   var loaded
   var authentication
   var num1
@@ -302,15 +208,12 @@ if(localStorage.getItem('pwCorrect')){
           }
         },200)
   
-        // document.getElementById('login').onclick = function(e){
         document.getElementById('login').addEventListener('click',e =>{
           authentication = 'checking' //to avoid failed being stored, if first time fails. Number of fails is limited by Firebase!!!
           clearInterval(checkPw)
           document.getElementById('loginIcon').src = 'images/checkingPw.gif'
-          // document.getElementById('login').style.borderColor= 'white'
   
           e.preventDefault() // to avoid page reload on first load!
-        //   var firstFour = document.getElementById('enteredPw').value.substr(0, 4)
           var EmailPlaceholder = document.getElementById('enteredName').value
           var pwPlaceholder = document.getElementById('enteredPw').value
   
@@ -321,10 +224,7 @@ if(localStorage.getItem('pwCorrect')){
             },50)
   
             var randomEmailId = Math.floor(Math.random() * 10);  // this is to prevent the situation where multiple users fail the login with the same account and it bolcks
-            // var email = 'sk'+ randomEmailId + '@sk.com' //I've added 10 different email address in Firebase (0-9) with same Pw
-            // var email = 'justfortesting@justfortesting.com' //I've added 10 different email address in Firebase (0-9) with same Pw
 
-            // console.log(email)
             var email = EmailPlaceholder
             var password = pwPlaceholder // 00 is added as Firebase only allows for a minimum of 6 digits pws
 
@@ -360,8 +260,7 @@ if(localStorage.getItem('pwCorrect')){
                 //   valueEnteredPhone = document.getElementById('enteredPhone').value
                   localStorage.setItem('username', valueEnteredName);
                 //   localStorage.setItem('phone', valueEnteredPhone);
-  
-  
+   
   
                   clearInterval(checkfields)
                   document.getElementById('login').disabled = true // to avoid that user clicks twice while waiting, in which case carto layer would load twice

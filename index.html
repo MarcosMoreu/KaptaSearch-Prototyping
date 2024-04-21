@@ -2,11 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Display a globe on a webpage</title>
+<title>Kapta Search</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <script async src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
 <link rel="stylesheet" href="styles/modal.css" id='modal-css' as='style' onload="this.media='all'">
+<link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-512x512.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
 
 <link rel="stylesheet" href="styles/app.css" id='app-css' as='style' onload="this.media='all'">
 
@@ -68,15 +74,12 @@
       <!-- <p id='AlertModalIOS' align = 'center' style='z-index:0;display:none;position:absolute;left:calc(50% - 120px);top:15px;color:yellow;font-size:14px; width:240px;font-family:'Ubuntu' '> labelllll</p> -->
         <input id='enteredName'  type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = '30'
         style='display:none;margin-left:4px;width:360px;height:40px; border: 1px solid grey;background-color: white;color:grey; text-align:center;letter-spacing: 5px;font-size:15px;'placeholder = "Email" required>
-        
-        <!-- <input id='enteredPhone'  type="number" novalidate value='Validate'oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = '16'
-        style='display:none;margin-left:4px;border-color:grey;background-color: white;color:grey; text-align:center;letter-spacing: 5px;font-size:17px;'placeholder = "📞 Phone Number" required>
-  -->
+
         <input id='enteredPw'  type="password" novalidate oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"maxlength = '30'
         style='display:none;margin-left:4px;margin-top:10px;width:360px;height:40px; border: 1px solid grey;background-color: white;color:grey; text-align:center;letter-spacing: 5px;font-size:17px;'placeholder = "Password" required>
 
       <button id='login' class='button'style='display:none;outline:none;margin-left:calc(50% - 25px); margin-bottom:10px;width:50px ; height:50px; border: 1px solid white; border-color:white; border-radius:50px' >
-        <img id = 'loginIcon' src="images/ThumbsUp.png"  loading='lazy' alt="..." style=' width:30px ; height:30px;margin-top:2px' >
+        <img id = 'loginIcon' src="images/confirm.png"  loading='lazy' alt="..." style=' width:30px ; height:30px;margin-top:2px' >
       </button>
 
     </div>
@@ -84,35 +87,21 @@
   <p id='AlertModalIOS' align = 'center' style='z-index:0;display:none;position:absolute;left:calc(50% - 120px);top:15px;color:yellow;font-size:14px; width:240px;font-family:'Ubuntu' '> </br> </b>
 
 </div>
-<!-- <div id='drop' style='z-index:1000;top:100px;display:initial;position:fixed;'>
-  <button id='dropDown' style='display:initial;cursor:pointer;z-index:3000;display:none;outline:none;left: 25px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;'>
-    <img id='imageDropDown' src="../images/burger.png" loading="lazy" style='width:22px ; height:17px;margin-top:2px'>
-  </buttong>
-</div> -->
+
 <div id='homepage'  class='full-height'  style='display:initial;z-index:3000;background-color:transparent; '>
 
-    <!-- <div id='drop' style='z-index:4000; display:initial;position:relative'> -->
       <button id='dropDown' class='buttonsDropDown' style='display:initial;cursor:pointer;z-index:3000;outline:none;margin-left: 25px;margin-top:25px;height:30px;border:none; background:transparent;border-radius: 5px;'>
         <img id='imageDropDown' src="../images/burger.png" loading="lazy" style='width:22px ; height:17px;margin-top:2px'>
       </button>
-    <!-- </div> -->
-    <!-- <div id='about' > -->
       <button id='aboutButton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;outline:none;position: absolute;left: 85px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;color:grey;font-size:18px; font-family: 'Ubuntu''>
         About
       </button>
-    <!-- </div> -->
-
-    <!-- <div id='technology' > -->
       <button id='technologyButton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;outline:none;position: absolute;left: 180px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;color:grey;font-size:18px; font-family: 'Ubuntu''>
         Technology
       </button>
-    <!-- </div> -->
-
-    <!-- <div id='Methodology' > -->
       <button id='methodologyButton' class='buttonInitial' style='cursor:pointer;z-index:2001;display:none;outline:none;position: absolute;left: 320px;top:25px;height:30px;border:none; background:transparent;border-radius: 5px;color:grey;font-size:18px; font-family: 'Ubuntu''>
         Methodology
       </button>
-    <!-- </div> -->
     <div id='burgerGoback' >
       <button id='burgerGobackbutton' class='buttonsGoBack' style='cursor:pointer;z-index:2001;display:none;position: absolute;right: calc(50% - 25px);top:25px;width:50px ; height:50px; border-radius:50px;border:none; background-color: #DEDDDD'>
         <img src="../images/arrowLeft.png" loading="lazy" style='width:30px ; height:30px'>
@@ -197,19 +186,12 @@
 <p id='kaptainitialscreen' style='z-index:5000;display:initial;text-align: center;position:fixed;width:100%;bottom:-1px;font-size:15px;color:grey; font-family:'Ubuntu' '> by Wisdom of the Crowd Labs (WCL)</p>
 
 <div id="map" style='background-color: #616060;height:100%; z-index:2; position:relative;'>
-  <!-- <a href="http://mapbox.com/about/maps" class='mapbox-logo' target="_blank"></a>
-  <div class="mapboxgl-ctrl-attrib-inner">
-    <a href="https://www.mapbox.com/about/maps/">© Mapboxxxxxx | </a>
-    <a href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
-    <a href="https://www.mapbox.com/map-feedback/" target="_blank"><strong></strong></a>
-  </div> -->
 </div>
 
 <div id='classification' style='display: flex; justify-content: center; align-items: center; left:19%;width: 70%; position: fixed; bottom: 5px; transform: translateY(-50%); z-index: 3;'>
     <button id='backtohomepage' class='button' aria-label='backEditDelete' style='display:none; cursor:pointer; background-color:#DEDDDD; border-color:#DEDDDD; margin-bottom:10px;margin-left:10px; margin-right: 10px;'>
     <img src="images/arrowLeft.png" alt="..." style='width:30px; height:30px'>
   </button>
-  <!-- Assuming emoji is another button or input for simplification -->
 
   <input id="emojionearea" class="inputtext" placeholder='Search ground data...' style='display:none;margin-bottom:15px;margin-left:10px; margin-right: 10px;width:calc(100% - 300px);vertical-align:middle;  height:40px; border-radius: 20px; border-color:white; background-color: #DEDDDD; font-size:16px; padding:0px 15px;'>
   <button id='searchWocMap' class='button' aria-label='searchWocMap' style='display:none;cursor:pointer; background-color: #DEDDDD; border-color: #DEDDDD; margin-bottom:10px;margin-left:10px; margin-right: 10px;'>
@@ -218,30 +200,12 @@
 
 </div>
 
-<!-- <div id='classification' align:centre style='display:none; width:100%;vertical-align:top;z-index:3; position:fixed; margin-top:-90px;'>
-
-  <button id='backtohomepage' class='button' aria-label = 'backEditDelete' style='cursor:pointer;display:initial; left: calc(15% - 0px);background-color:#DEDDDD;; border-color:#DEDDDD'>
-    <img src="images/arrowLeft.png" loading='lazy'  alt="..." style='margin-left:2px; width:30px ; height:30px'>
-  </button>
-  <div id='emoji' class="span6" style='left: calc(15% + 20px);' >
-    <div id='span6' class="span6" style='left: calc(15% + 20px);cursor:pointer;vertical-align:middle;display:inline-block; position:flex; height:50px;width:100%'>
-      <input id="emojionearea" class="inputtext" placeholder='e.g. I need the location and condition of all water pumps in this area' style='left: calc(15% + 20px);vertical-align:middle;  margin-left: 30px; height:40px;border-radius: 20px;border-color:white; background-color: #DEDDDD;font-size:16px;padding:0px 15px;'></input>
-    </div>
-  </div>
-  <button id='searchWocMap' class='button' aria-label = 'searchWocMap' style='cursor:pointer;display:initial;margin-left: 30px;background-color: #DEDDDD;border-color: #DEDDDD' >
-    <img id='imagesearchWocMap' src="images/arrowUp.png" loading='lazy'  alt="..." style='width:30px ; height:30px '>
-  </button>
-
-  </div> -->
 <script async src="scripts/modal.js"></script>
 <script defer src=".env/publicApiKeys.js"></script>
 <script defer src="scripts/elements.js"></script>
 <script defer src="scripts/searchGD.js"></script>
 <script defer src="scripts/cartoLayer.js"></script>
 
-<!-- <script defer src="scripts/mapboxglcarto.js"></script> -->
-
 </body>
-
 
 </html>

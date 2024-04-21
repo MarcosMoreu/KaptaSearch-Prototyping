@@ -5,28 +5,6 @@ var languageSelected
 var geojsonObfuscated
 
 
-// document.getElementById('english').src = "https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ad.png"
-//console.(screen.height)
-//console.('innerheight',window.innerHeight)
-
-// document.getElementById('startMapping').onclick = function(e){
-//   document.getElementById("startMapping").style.animation = "initial";
-//
-//
-//    setTimeout(function(){
-//     //  document.getElementById("startMapping").style.animation = "none";
-//     // document.getElementById("english").style.display = "none";
-//     // document.getElementById("swahili").style.display = "none";
-//     // document.getElementById("other1").style.display = "none";
-//     // document.getElementById("other1UnderDev").style.display = "none";
-//     // document.getElementById("AlertTranslate").style.display = "none";
-//      location.href='../';
-//    },100)
-//   }
-// TO MAKE THE MAP APPEAR YOU MUST
-// ADD YOUR ACCESS TOKEN FROM
-// https://account.mapbox.com
-
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY29zbW9yZXV1Y2wiLCJhIjoiY2xwZHNlbmFpMDVoZjJpcGJxOHplOGw0ZCJ9.MiHNkvMRkTcfndsLMH166w';
 const map = new mapboxgl.Map({
 container: 'map',
@@ -102,11 +80,7 @@ document.getElementById('aboutButton').onclick = function(e){
    setTimeout(function(){
      document.getElementById("burgerGobackbutton").style.display = "initial";
      document.getElementById('aboutContent').style.display = 'initial'
-     // document.getElementById('TextRequest').style.display = 'initial'
-
-     // document.getElementById("cognitoForm").style.display = "initial";
      document.body.style.overflow = 'visible';
-     // document.getElementById('loadingCognito').style.display = "none";
      document.getElementById('dropDown').style.display = "none";
      document.getElementById('technologyButton').style.display = "none";
     document.getElementById('aboutButton').style.display = "none";
@@ -126,9 +100,7 @@ document.getElementById('technologyButton').onclick = function(e){
     setTimeout(function(){
       document.getElementById("burgerGobackbutton").style.display = "initial";
       document.getElementById('technologyContent').style.display = 'initial'
-      // document.getElementById("cognitoForm").style.display = "initial";
       document.body.style.overflow = 'visible';
-      // document.getElementById('loadingCognito').style.display = "none";
       document.getElementById('dropDown').style.display = "none";
       document.getElementById('technologyButton').style.display = "none";
      document.getElementById('aboutButton').style.display = "none";
@@ -140,20 +112,8 @@ document.getElementById('technologyButton').onclick = function(e){
      document.getElementById('kaptainitialscreen').style.display = 'none'
      document.getElementById('map').style.display = 'none'
 
-
-     // if(cognitoFormLoaded == false){
-     //   document.getElementById("loadingCognito").style.display = "initial";
-     // }
-
    },100)
-         // Cognito.load("forms", { id: "2" })
-         // cognitoFormLoaded = true
-         //
 
-  // setTimeout(function(){
-  //   document.getElementById("loadingCognito").style.display = "none";
-  // },4000)
-  // return cognitoFormLoaded
 }
 
 
@@ -164,7 +124,6 @@ document.getElementById('methodologyButton').onclick = function(e){
      document.getElementById("methodologyContent").style.display = "initial";
 
      document.body.style.overflow = 'visible';
-     // document.getElementById('loadingCognito').style.display = "none";
      document.getElementById('dropDown').style.display = "none";
      document.getElementById('technologyButton').style.display = "none";
     document.getElementById('aboutButton').style.display = "none";
@@ -181,17 +140,11 @@ document.getElementById('methodologyButton').onclick = function(e){
   }
 
 document.getElementById('burgerGobackbutton').onclick = function(e){
-  // var storeIframeURL = document.getElementById("youtubeVideo").src
    setTimeout(function(){
      document.getElementById("burgerGobackbutton").style.display = "none";
      document.getElementById("aboutContent").style.display = "none";
      document.getElementById("technologyContent").style.display = "none";
      document.getElementById("methodologyContent").style.display = "none";
-
-
-
-     // document.getElementById("TextRequest").style.display = "none";
-
      document.body.style.overflow = 'hidden';
 
      document.getElementById("aboutButton").style.display = "none";
@@ -233,7 +186,6 @@ document.getElementById('askthemap').onclick = function(){
     document.getElementById("aboutButton").style.display = 'none'
     document.getElementById("technologyButton").style.display = 'none'
     document.getElementById("methodologyButton").style.display = 'none'
-    // document.getElementById("kaptainitialscreen").style.display = 'none'
     document.getElementById("languages").style.display = 'none'
     document.getElementById("languages").style.display = 'none'
     document.getElementById("dropDown").style.display = 'none'
@@ -265,12 +217,6 @@ document.getElementById('askthemap').onclick = function(){
   },300)
 
 
-
-
-  // setTimeout(function(){
-  //   document.getElementById("bot").style.display = 'none'
-  // },4000)
-
   setTimeout(function(){
     document.getElementById('homepage').style.display = 'none'
     document.getElementById("map").style.opacity = 1;
@@ -278,10 +224,6 @@ document.getElementById('askthemap').onclick = function(){
     document.getElementById('askthemap').style.backgroundColor = 'white'
     var mapboxattrib1 = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
     mapboxattrib1[0].style.display = 'initial'
-    // var mapboxattrib2 = document.getElementsByClassName("mapboxgl-ctrl-bottom-left")
-    // mapboxattrib2[0].style.display = 'initial'
-    // var mapboxattrib = document.getElementsByClassName("mapbox-improve-map")
-    // mapboxattrib[0].innerHTML = ''
     var mapboxattribbox = document.getElementsByClassName("mapboxgl-ctrl-bottom-right")
     mapboxattribbox[0].style.backgroundColor = '#fffff'
 
@@ -309,12 +251,6 @@ map.flyTo({
   zoom: 2,
   essential: true // this animation is considered essential with respect to prefers-reduced-motion
   });
-
-  // filter_Button.addTo(map);
-  //
-  // document.getElementById('filter').click()
-  // filter_Button.removeFrom(map);
-  // document.getElementById('tutorial').click()
 
   clearInterval(checkTextbox)
   document.getElementById('homepage').style.display = 'initial'
@@ -425,58 +361,7 @@ let var1, var2, var3, var4, var5;
         return aoi
       }
       polygoncanvas(map)
-        /////////////ifelse to calculate radius in a simple way without requiring processing GIS operations
-    //   if (currentZoom >= 21) {
-    //     var radiusbuffer = 10;
-    // } else if (currentZoom >= 1 && currentZoom <= 20) {
-    //     // Calculate the multiplier based on the zoom level difference from 21
-    //     var exponent = 21 - currentZoom;
-    //     // Adjust the multiplier for zoom levels 11 to 20
-    //     if (currentZoom >= 11) {
-    //         exponent -= 1; // Adjust exponent because the sequence starts doubling at 20, not 21
-    //     }
-    //     // Calculate radiusbuffer based on the pattern identified, adjusting for the initial values at higher zoom levels
-    //     var baseValue = currentZoom >= 11 ? 20 : 10;
-    //     var radiusbufferdecimal = baseValue * Math.pow(2, exponent);
-    //     var radiusbuffer = Math.round(radiusbufferdecimal);
-    // }
-    // console.log("radiusbuffer", radiusbuffer)
-    // //   datasubmissiontype = 'obfuscated'
-    //   function createCenterPointGeoJSON(map) {
-    //     var center = map.getCenter(); 
-    //     geojsonObfuscated = {
-    //         "type": "Feature",
-    //         "properties": {
-    //             "requestid": '0001',
-    //             "requesttype": '99999',
-    //             "timestamp": '2024-02-14T14:14:31.000Z',
-    //             "organisation": 'aaaa',
-    //             "email": 'bbbbb',
-    //             "name": '1111',
-    //             "description": 'obfuscated',   
-    //             "totalcontrib": '1111', 
-    //             "radiusbuffer": '2222', 
-    //         },
-    //         "geometry": {
-    //             "type": "Point",
-    //             "coordinates": [center.lng, center.lat]
-    //         }
-    //     };
-
-    //     return geojsonObfuscated
-    //   }
-    //   createCenterPointGeoJSON(map)
-    //   console.log("geojsonObfuscated", geojsonObfuscated)
-    //   console.log("geomstring", geojsonObfuscated.geometry)
-    //   console.log("propcontrib", geojsonObfuscated.properties.contributionid)
-      // INSERT INTO `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_obfusandopen` (geom, contributionid, phone, timestamp, mainattribute, attribute1s, attribute1n, datasov, totalcontrib, radiusbuffer) VALUES (ST_GeogFromGeoJSON('[object Object]',make_valid => true),'1230','null',CAST('2024-2-14T10:37:36Z' AS TIMESTAMP),'nameofthegroup','test',CAST('33' AS NUMERIC),'obuscates',CAST('1212123' AS INT64),CAST('222' AS INT64)
-
     
-    // var sql = "INSERT INTO `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_obfusandopen` (geom, contributionid, phone, timestamp, mainattribute, attribute1s, attribute1n, datasov, totalcontrib, radiusbuffer) VALUES (ST_GeogFromGeoJSON('";
-    //   var sql2 = geojsonObfuscated.geometry;
-    //   var sql3 = "',make_valid => true),'"+contributionid+ "','" + phoneNumber + "',CAST('" +timestamp+"' AS TIMESTAMP),'" + mainattribute + "','" + attribute1s + "',CAST('" + attribute1n + "' AS NUMERIC),'" + datasov + "',CAST('"+ totalcontrib + "' AS INT64),CAST('" + radiusbuffer + "' AS INT64)";
-    //   pURL = sql + sql2 + sql3;
-    //   console.log(pURL)
     var timeEnd = new Date();
     var date = timeEnd.getFullYear() + '-' + (timeEnd.getMonth() + 1) + '-' + timeEnd.getDate();
     var time = timeEnd.getHours() + ":" + timeEnd.getMinutes() + ":" + timeEnd.getSeconds();
@@ -501,8 +386,6 @@ let var1, var2, var3, var4, var5;
     var description = document.getElementById('input2').value
     var totalcontrib = '00001'
     var radiusbuffer = '0002'
-
-
 
     /////// to insert the advertising point to the obfuscatedandopen DB
     var sql = "INSERT INTO `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.wcl_requests` (geom, requestid, requesttype, timestamp, organisation, email, name, description, totalcontrib, radiusbuffer) VALUES (ST_GeogFromGeoJSON('";
@@ -531,8 +414,6 @@ let var1, var2, var3, var4, var5;
         document.getElementById('searchWocMap').style.display = 'initial'
         document.getElementById('map').style.display = 'initial'
 
-        // document.getElementById('initialscreen2options').style.display = 'none'
-        // document.getElementById('inputs').style.display = 'none'
 
       },100)
       return searchResult

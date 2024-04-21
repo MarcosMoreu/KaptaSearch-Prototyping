@@ -1,14 +1,9 @@
 
 var requestCartoData = function(sqlQuerySelectEncoded) {
-  //console.('requestCartoDataaaaaaaaaaaaaaaaaaaaaaaa')
-    // if (isOnline == true) {
 
-      // sqlQuery = "SELECT geom, contributionid, phone, sapprojid, areapolygon, lengthline, distance, date, attribute1s, attribute2s, attribute3s, attribute4s, attribute5s, attribute6s, attribute7s, attribute8s, attribute9s, attribute10s, attribute11n, attribute12n, attribute13n, attribute14n, attribute15n, attribute16n, attribute17n, attribute18n, attribute19n, attribute20n FROM `carto-dw-ac-745p52tn.private_marcos_moreu_a1ec85bf.gxdb0`";
       var settings = {
         "url":"https://gcp-europe-west1.api.carto.com/v3/maps/carto_dw/query?format=geojson&q=" + sqlQuerySelectEncoded,
-        // carto-demo-data.demo_tables.dataappeal_restaurants_and_cafes_berlin_cpg
 
-        // "url":"https://gcp-europe-west1.api.carto.com/v3/maps/carto_dw/table?name=carto-demo-data.demo_tables.dataappeal_restaurants_and_cafes_berlin_cpg",
         "method": "GET",
         "timeout": 0,
         "cache":false,
@@ -34,43 +29,9 @@ var requestCartoData = function(sqlQuerySelectEncoded) {
           });
         };
       getGeoJSON(); //////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      // deflated.addTo(map)
-    // }
-    // return cartousername
+
 }
-// var requestCartoData = function(sqlQuerySelectEncoded) {
-//   var settings = {
-//       "url": "https://gcp-europe-west1.api.carto.com/v3/maps/carto_dw/query?format=geojson&q=" + sqlQuerySelectEncoded,
-//       "method": "GET",
-//       "timeout": 0,
-//       "cache": false,
-//       "headers": {
-//           "Content-Type": "application/json",
-//           "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhIjoiYWNfNzQ1cDUydG4iLCJqdGkiOiIxOTIxMzgwMiJ9.e8ad2qIgiY4YgpMIE3DfBJ-ipH0k_Zk3APbIkYZyJiM",
-//           "Cache-Control": "max-age=300"
-//       }
-//   };
 
-//   // Remove clearInterval, as it seems to be incorrectly used here. clearInterval should be used with a timer ID.
-  
-//   $.ajax(settings)
-//   .done(function(response) {
-//       // Handle success
-//       testcarto(response); // Assuming testcarto is your success handler function
-//   })
-//   .fail(function(jqXHR, textStatus, errorThrown) {
-//       // Handle failure
-//       console.error("Request failed: " + textStatus + ", " + errorThrown);
-//   })
-//   .always(function() {
-//     console.error("always");
-
-//       // Code to execute regardless of success or failure
-//   });
-// };
-
-// It's not clear what getGeoJSON function is supposed to do, especially since settings object is not a URL string
-// Consider revising or removing this part based on your actual requirements
 
 var cartopopupcontentrefined
 var datatoexport
@@ -97,14 +58,11 @@ console.log(data)
     [22, 180]
     ]
     },
-    // Color circles by ethnicity, using a `match` expression.
     'circle-color': 'red'
     }
     },
-    // Place polygons under labels, roads and buildings.
 
     );
-    // map.fitBounds('test');
     try{
       const coordinates = data.features[0].geometry.coordinates;
       // currentLocation = [52.54463, 13.36817];
